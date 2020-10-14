@@ -11,5 +11,4 @@ struct duomuo {
     double medianai;
 };
 
-bool palyginimas(const duomuo &a, const duomuo &b);
 #endif // STRUKTURA_H_INCLUDED
