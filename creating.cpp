@@ -2,6 +2,9 @@
 
 int generavimas(int g, std::string a)
 {
+  using hrClock = std::chrono::high_resolution_clock;
+  std::mt19937 mt(static_cast<long unsigned int>(hrClock::now().time_since_epoch().count()));
+  std::uniform_int_distribution<int> dist(1, 10);
   std::vector<int> Vect;
   srand(time(NULL));
     for (int i = 0; i < g; i++)
@@ -20,15 +23,15 @@ int generavimas(int g, std::string a)
         f << "Vardas"<<std::left << std::setw(15)<< Vect[elem]
         << "Pavarde"<< std::left << std::setw(15)<<Vect[elem];
         for (int k = 1; k<10; k++){
-          f<< std::left << std::setw(5)<<1 + rand() % 10;}
-        f << 1 + rand() % 10<< std::endl;
+          f<< std::left << std::setw(5)<<dist(mt);}
+        f << dist(mt)<< std::endl;
     }
     f.close();
     return 0;
 };
 
-int eilute(){
-  std::ifstream file("output1.txt");
+int eilute(std::string a){
+  std::ifstream file(a);
   int count = 0;
   string line;
     while (getline(file, line))
