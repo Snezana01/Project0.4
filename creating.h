@@ -17,9 +17,9 @@ using std::cin;
 using std::string;
 using std::vector;
 
-int generavimas(int, std::string);
+int generavimas(int, string);
 
-int eilute();
+int eilute(string);
 
 #include "struktura.h"
 
